@@ -1,0 +1,29 @@
+<h1>TESTE TÍTULO</h1>
+<div class="container text-center">
+  <h1>{{modelName}}</h1>
+  <button class="btn btn-primary ">OK</button>
+</div>
+
+
+<div class="container text-center">
+  <input 
+  #studentNameInput
+  type="text"
+  [value]="studentName"
+  (input)="setStudentName(studentNameInput.value)"> 
+
+    <p>{{studentName}}</p>
+
+    <p [class]="myCSSClass">
+      parágrafo com a class myCSSClass
+    </p><br>
+
+    <p [class.blue]="myCSSClass">
+      Este pega a classe blue
+    </p><br>
+
+    <p [style.color]="fontCSSColor">
+      estou aqui fontCSSColor
+    </p>
+
+</div>

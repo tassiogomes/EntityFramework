@@ -1,0 +1,36 @@
+$pwd
+
+
+dotnet add GestaoParquesAPI package Microsoft.EntityFrameworkCore
+
+dotnet add GestaoParquesAPI package Microsoft.EntityFrameworkCore.Tools
+
+dotnet add GestaoParquesAPI package Microsoft.EntityFrameworkCore.Design
+
+dotnet add GestaoParquesAPI package Microsoft.EntityFrameworkCore.SqlServer
+
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "AppConnectionString": "Server=LAPTOP-1TNVIN9M;database=StockManagement;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}
+
+
+Trocar o context para false
+
+
+Scaffold-DbContext -connection name=AppConnectionString Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+builder.Services.AddDbContext<GestaoParquesContext>(o =>
+o.UseSqlServer(builder.Configuration.GetConnectionString("ApiConnectionString")));
+
+Criar Controller - right click, add, new scaffolded item

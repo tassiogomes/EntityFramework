@@ -1,0 +1,18 @@
+<div class="container text-center">
+    <button class="btn btn-primary" (click)="mostrarConteudoFunc()">Mostrar Conteúdo</button>
+    <button class="btn btn-primary" (click)="ocultarConteudoFunc()">Ocultar Conteúdo</button>
+</div>
+  
+  <div class="container text-center mt-3" *ngIf="mostrarConteudo; else elseocultar">
+    <h2>Conteúdo exibido</h2>
+      conteudo mostrado
+  </div>
+
+  <ng-template #elseocultar>
+    <div class="container text-center mt-3">
+      <h2>Conteúdo ocultado</h2>
+      ocultado
+    </div>
+  </ng-template>
+
+

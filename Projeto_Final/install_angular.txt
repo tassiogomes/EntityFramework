@@ -1,0 +1,36 @@
+- Criar projeto
+ng new nomedoprojeto --no-standalone --routing  --ssr=false
+
+- Link do Zé antes de gerar componente
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+- Criar componente
+ng generate component nomedocomponente
+
+
+
+- Install Bootstrap
+npm install bootstrap@5 --save
+npm install bootstrap-icons   
+
+	- adicionar aos scripts
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+
+
+Criação de pastas de ambiente (ng generate environments) e colocar a 
+configuração para acesso à API em environment.ts: 
+production: false, 
+apiUrl: ‘https://localhost:72268/api’ 
+
+
+depois de criar module ir para pasta raiz dele, por exemplo families
+ng generate service family cria um arquivo ts que vai conter os métodos
+ng generate interface family é o template de como é a familia, nao precisa instanciar, nao precisa gerar objetos
+Na interface criar dois atributos com o mesmo nome vindo da api para nao precisar mapear... family.ts
