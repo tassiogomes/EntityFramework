@@ -8,13 +8,31 @@ namespace GestaoParquesAPI.DTOs
 
         public string NomeTipoOcorrencia { get; set; } = null!;
 
-        public DateTime DataCriacao { get; set; }
-
-        public DateTime DataAtualizacao { get; set; }
-
         public bool Inativo { get; set; }
 
-        public virtual ICollection<Ocorrencium> Ocorrencia { get; set; } = new List<Ocorrencium>();
 
+        public TipoOcorrencium DtoToTipocorrenciaModel()
+        {
+            TipoOcorrencium ocorrecia = new TipoOcorrencium
+            {
+                IdTipoOcorrencia = this.IdTipoOcorrencia,
+                NomeTipoOcorrencia = this.NomeTipoOcorrencia,
+                DataCriacao = DateTime.Now,
+                DataAtualizacao = DateTime.Now
+            };
+
+            return ocorrecia;
+        }
+
+        public TipoOcorrenciaDTO TipoOcorrenciaModelToDto(TipoOcorrencium ocorrencia)
+        {
+            TipoOcorrenciaDTO dtoTipoOcorrecia = new TipoOcorrenciaDTO
+            {
+                IdTipoOcorrencia = ocorrencia.IdTipoOcorrencia,
+                NomeTipoOcorrencia = ocorrencia.NomeTipoOcorrencia
+            };
+            return dtoTipoOcorrecia;
+        }
+
+        }
     }
-}

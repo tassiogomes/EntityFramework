@@ -37,8 +37,6 @@ namespace GestaoParquesAPI.Controllers
         }
 
 
-
-
         // GET: api/Funcao/5
         [HttpGet("{id}")]
         public async Task<ActionResult<FuncaoDTO>> GetFuncao(int id)
