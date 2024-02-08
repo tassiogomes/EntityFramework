@@ -139,6 +139,9 @@ namespace GestaoParquesAPI.Controllers
         }
 
 
+
+
+
         private bool TipoOcorrenciumExists(int id)
         {
             return _context.TipoOcorrencia.Any(e => e.IdTipoOcorrencia == id);
