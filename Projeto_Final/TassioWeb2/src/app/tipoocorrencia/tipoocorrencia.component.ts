@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './tipoocorrencia.component.css'
 })
 export class TipoocorrenciaComponent {
-
+  
 }

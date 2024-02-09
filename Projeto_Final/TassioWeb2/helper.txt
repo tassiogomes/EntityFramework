@@ -55,5 +55,17 @@ verificar se está na pagina node_modules
                     }
         2.2.7 - Importar os modulos HttpClientModule tanto no app.module, que é a nossa aplicação.
                 Mas também importar no tipoocorrencia.service para reconhecer essa biblioteca.
+        2.2.8 - Criar tipoocorrencia.ts com uma interface que terá que ser implementada do jeito que
+                a API manda os dados. Criar arquivo a mão.
+        2.2.9 - Criar a função GetAllTipoOcorrencia no service para receber todos os dados.
+        2.2.10- Fazer que o tipoocorrencia.html que tem a lista, tenha acesso a esse GetAllTipoOcorrencia.
+                Implementar o OnInit na classe Tipoocorrencia, para que o GetAllTipoOcorrencia
+                seja feito antes de qualquer ação que houver na página.
+        2.2.11- Declarar duas variáveis, um um array vazio de nome ListaTipoOcorrencia do tipo interface TipoOcorrencia.
+                Um outro array vazio do mesmo tipo mas com o nome TipoOcorrencia.
+                Um é a lista de todos que vem do GetAllTipoOcorrencia, outro é cada item dessa lista.
+        2.2.12- Criar um contrutor que receba um TipoocorrenciaService que é onde está o GetAllTipoOcorrencia.
+                Importar serviço import { TipoocorrenciaService } from './tipoocorrencia.service';
+
 
 
