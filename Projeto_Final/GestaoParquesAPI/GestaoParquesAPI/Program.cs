@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Cors
 builder.Services.AddCors(o => o.AddPolicy(name: "MyAllowSpecifcOrigins",
-                policy =>
+                policy =>   
                 {
                     policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
                 }));
