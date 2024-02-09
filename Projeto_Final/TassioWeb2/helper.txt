@@ -78,4 +78,6 @@ verificar se está na pagina node_modules
                 <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar">Criar Ocorrência</button>.
         2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de criar.
         2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao post e depois injetar no CriarTipoOcorrenciaComponent.
-                
+        2.3.5 - Criar a funcao criartipoocorrencia no criartipoocorrencia.component.
+        2.3.6 - Adicionar ao botao criar no html a chamada da funcao no input.
+                [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia"

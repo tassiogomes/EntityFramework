@@ -25,11 +25,17 @@ export class CriarTipoOcorrenciaComponent {
   }
 
   criarOcorrencia() {
+    if (!this.tipoOcorrencia.nomeTipoOcorrencia.trim()) {
+      alert('Por favor, preencha o campo Nome.');
+      return;
+    }
+
+
     console.log(this.tipoOcorrencia);
     this.tipoocorrenciaService.createTipoOcorrencia(this.tipoOcorrencia).then(data => {
       data.subscribe(data =>{
         console.log('Tipo de Ocorrência adicionado com sucesso', data);
-        alert("Tipo do Ocorrência não adicionado")
+        alert("Tipo de Ocorrência adicionado")
       })
     }).then(()=>{
       this.createForm.reset();
