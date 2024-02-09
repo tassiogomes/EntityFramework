@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TipoocorrenciaComponent } from './tipoocorrencia.component';
 import { CriarTipoOcorrenciaComponent } from './criar-tipoocorrencia/criar-tipoocorrencia.component';
+import { EditarTipoocorrenciaComponent } from './editar-tipoocorrencia/editar-tipoocorrencia.component';
 
 const routes: Routes = [
   { path: '', component: TipoocorrenciaComponent },
-  { path: 'criar-tipoocorrencia', component: CriarTipoOcorrenciaComponent}
+  { path: 'criar-tipoocorrencia', component: CriarTipoOcorrenciaComponent},
+  { path: 'editar-tipoocorrencia', component: EditarTipoocorrenciaComponent}
 ];
 
 @NgModule({

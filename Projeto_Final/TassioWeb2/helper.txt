@@ -75,7 +75,7 @@ verificar se está na pagina node_modules
                 { path: 'criar-tipoocorrencia', component: CriarTipoocorrenciaComponent}
                 Agora com um path, que será inserido no botao, para ir pro html do criar.            
         2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
-                <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar">Criar Ocorrência</button>.
+                <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar-tipoocorrencia">Criar Ocorrência</button>.
         2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de criar.
         2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao post e depois injetar no CriarTipoOcorrenciaComponent.
         2.3.5 - Criar a funcao criartipoocorrencia no criartipoocorrencia.component.
