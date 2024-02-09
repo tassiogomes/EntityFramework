@@ -1,0 +1,42 @@
+- Criar projeto
+ng new nomedoprojeto --no-standalone --routing  --ssr=false
+
+- Link do Zé antes de gerar componente
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+
+- Install Bootstrap
+npm install bootstrap@5 --save
+npm install bootstrap-icons
+verificar se está na pagina node_modules
+
+-- PASSO A PASSO
+1 - Estrutura
+    1.1 - HOME: Criar componente home dentro da pasta app - ng generate component home
+        1.1.1 - Foi adicionado import { HomeComponent } from './home/home.component';
+                automaticamente a pasta app.module, a central;
+        1.1.2 - Adicionar as rotas da app, na app.routing passando o path.
+                { path: '', component: HomeComponent};
+        1.1.3 - Passar o <router-outlet></router-outlet> pra dentro do module.
+                Esse vai puxar pra dentro tudo que é componente.
+    1.2 - HEADER e FOOTER: Criar componente header e footer
+          ng generate component header e ng generate component footer;
+        1.2.1 - Foi adicionado import import { HeaderComponent } from './shared/header/header.component';
+                import { FooterComponent } from './shared/footer/footer.component';
+                automaticamente a pasta app.module, a central;
+        1.2.2 - Adicionar as rotas da app, na app.routing passando o path.
+                import { HeaderComponent } from './shared/header/header.component';
+                import { FooterComponent } from './shared/footer/footer.component';
+        1.2.3 - Passar pra dentro do app.module.html os selectors dos dois.
+                <app-header></app-header>
+                <router-outlet></router-outlet>
+                <app-footer></app-footer>;
+        1.2.4 - Preencher header.html e footer.html com os bootstrap;
+
+2 - CRUD
+    2.1 - LIST - Criar componente para Lista de Tipo de Ocorrência.
+                 ng generate component funcoes
+ng generate module tipoocorrencia --route tipoocorrencia --module app.module                 
+
+
+
