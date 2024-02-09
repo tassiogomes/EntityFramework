@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { TipoOcorrenciaInterface } from './tipoocorrencia';
@@ -15,8 +15,19 @@ export class TipoocorrenciaService {
     this.apiUrl = environment.apiUrl + "TipoOcorrenciums";
   }
 
+  // GetAll
   async getAllTipoOcorrencia():Promise<Observable<TipoOcorrenciaInterface[]>>{
     return await this.httpClient.get<TipoOcorrenciaInterface[]>(this.apiUrl);
+  }
+
+  // Criar
+  async createTipoOcorrencia(tipoOcorrenciaBody: any): Promise<Observable<TipoOcorrenciaInterface>> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return await this.httpClient.post<TipoOcorrenciaInterface>(this.apiUrl, tipoOcorrenciaBody, httpOptions);
   }
 
 }
