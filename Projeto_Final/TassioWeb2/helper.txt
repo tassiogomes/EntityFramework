@@ -81,3 +81,11 @@ verificar se está na pagina node_modules
         2.3.5 - Criar a funcao criartipoocorrencia no criartipoocorrencia.component.
         2.3.6 - Adicionar ao botao criar no html a chamada da funcao no input.
                 [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia"
+    2.4-EDIT -  Criar componente dentro da pasta tipoocorrencia para criar um tipo novo.
+                   ng generate component editar-tipoocorrencia , criará os 4 arquivos.
+        2.3.1 - Criar rota NO COMPONENTE PAI (tipoocorrencia) para o novo componente editartipoocorrencia.
+                { path: 'editar-tipoocorrencia', component: EditarTipoocorrenciaComponent}
+                Agora com um path, que será inserido no botao, para ir pro html do criar.            
+        2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
+                <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/editar-tipoocorrencia">Editar Ocorrência</button>.
+        2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de criar.            
