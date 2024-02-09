@@ -1,4 +1,4 @@
-export interface TipoOcorrencia {
+export interface TipoOcorrenciaInterface {
     idTipoOcorrencia?: number,
     nomeTipoOcorrencia: string
 }
