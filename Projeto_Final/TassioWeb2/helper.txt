@@ -34,11 +34,11 @@ verificar se está na pagina node_modules
         1.2.4 - Preencher header.html e footer.html com os bootstrap;
 
 2 - CRUD
-    2.1 - API - Criar ng generate environments dentro da pasta src, fora da app.
+    2.1-API - Criar ng generate environments dentro da pasta src, fora da app.
           Criar variável que receberá o URL da api nos dois arquivos.
           apiUrl: 'https://localhost:7149/api/'
 
-    2.2 - LIST - Criar componente para Lista de Tipo de Ocorrência.
+    2.2-LIST - Criar componente para Lista de Tipo de Ocorrência.
                  ng generate module tipoocorrencia --route tipoocorrencia --module app.module
         2.2.1 - Cria automaticamente uma rota na app.routing para essa nova componente.
                 { path: 'tipoocorrencia', loadChildren: () => import('./tipoocorrencia/tipoocorrencia.module').then(m => m.TipoocorrenciaModule) }                  
@@ -69,5 +69,11 @@ verificar se está na pagina node_modules
         2.2.13- Implementar o OnInit, verificar codigo por causa do Observable e subscribe, ler mais sobre isso.
         2.2.14- Fazer um Foreach no tipoocorrencia.html para listar esse array com os tipos de ocorrencia e
                 e colocar na coluna certa da tabela, nesse caso, nome do tipo de ocorrencia.
-
+    2.3-CREATE - Criar componente dentro da pasta tipoocorrencia para criar um tipo novo.
+                   ng generate component criar-tipoocorrencia , criará os 4 arquivos.
+        2.3.1 - Criar rota NO COMPONENTE PAI (tipoocorrencia) para o novo componente criartipoocorrencia.
+                { path: 'criar-tipoocorrencia', component: CriarTipoocorrenciaComponent}
+                Agora com um path, que será inserido no botao, para ir pro html do criar.            
+        2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
+                <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar">Criar Ocorrência</button>.
 

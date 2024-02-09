@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TipoocorrenciaRoutingModule } from './tipoocorrencia-routing.module';
 import { TipoocorrenciaComponent } from './tipoocorrencia.component';
+import { CriarTipoocorrenciaComponent } from './criar-tipoocorrencia/criar-tipoocorrencia.component';
 
 
 @NgModule({
   declarations: [
-    TipoocorrenciaComponent
+    TipoocorrenciaComponent,
+    CriarTipoocorrenciaComponent
   ],
   imports: [
     CommonModule,
