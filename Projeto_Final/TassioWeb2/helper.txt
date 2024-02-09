@@ -66,6 +66,8 @@ verificar se está na pagina node_modules
                 Um é a lista de todos que vem do GetAllTipoOcorrencia, outro é cada item dessa lista.
         2.2.12- Criar um contrutor que receba um TipoocorrenciaService que é onde está o GetAllTipoOcorrencia.
                 Importar serviço import { TipoocorrenciaService } from './tipoocorrencia.service';
-
+        2.2.13- Implementar o OnInit, verificar codigo por causa do Observable e subscribe, ler mais sobre isso.
+        2.2.14- Fazer um Foreach no tipoocorrencia.html para listar esse array com os tipos de ocorrencia e
+                e colocar na coluna certa da tabela, nesse caso, nome do tipo de ocorrencia.
 
 

@@ -15,11 +15,11 @@
       </thead>
       <tbody>
         <!-- Linha da Tabela -->
-        <tr>
+        <tr *ngFor="let ocorrencia of tipoocorrenciaList">
           <!-- Coluna de Status -->
           <td>Status 1</td>
           <!-- Coluna de Nome -->
-          <td>Nome 1</td>
+          <td>{{ ocorrencia.nomeTipoOcorrencia }}</td>
           <!-- Coluna de Ações -->
           <td>
             <!-- Botão de Editar -->
