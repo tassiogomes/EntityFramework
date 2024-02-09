@@ -35,8 +35,12 @@ verificar se está na pagina node_modules
 
 2 - CRUD
     2.1 - LIST - Criar componente para Lista de Tipo de Ocorrência.
-                 ng generate component funcoes
-ng generate module tipoocorrencia --route tipoocorrencia --module app.module                 
+                 ng generate module tipoocorrencia --route tipoocorrencia --module app.module
+        2.1.1 - Cria automaticamente uma rota na app.routing para essa nova componente.
+                { path: 'tipoocorrencia', loadChildren: () => import('./tipoocorrencia/tipoocorrencia.module').then(m => m.TipoocorrenciaModule) }                  
+        2.1.2 - Tem que atualizar o link do botao da nav bar para que chame essa nova componente, que nao roda na home.
+                <a class="nav-link" href="/tipoocorrencia">Tipo de Ocorrência</a>
+        
 
 
 

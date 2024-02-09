@@ -7,7 +7,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: '', component: HeaderComponent},
-  { path: '', component: FooterComponent}
+  { path: '', component: FooterComponent},
+  { path: 'tipoocorrencia', loadChildren: () => import('./tipoocorrencia/tipoocorrencia.module').then(m => m.TipoocorrenciaModule) }
 ];
 
 @NgModule({
