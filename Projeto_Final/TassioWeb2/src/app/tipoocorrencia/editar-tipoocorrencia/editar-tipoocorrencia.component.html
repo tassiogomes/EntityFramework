@@ -5,7 +5,7 @@
     <form class="mt-3">
         <div class="mb-3">
             <label for="nome" class="form-label">Digite o novo nome</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite aqui" name="nomeTipoOcorrencia">
+            <input type="text" class="form-control" id="nome" placeholder="Digite aqui" name="nomeTipoOcorrencia" [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia">
         </div>
         <button class="btn btn-warning" (click)="update()" >Salvar</button>
         <!-- Adicionar isso depois (click)="editarOcorrencia() -->

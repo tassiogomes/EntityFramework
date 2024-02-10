@@ -36,6 +36,11 @@ export class EditarTipoocorrenciaComponent implements OnInit {
   }
 
   update(): void {
+    if (!this.tipoOcorrencia.nomeTipoOcorrencia.trim()) {
+      alert('Por favor, preencha o campo Nome.');
+      return;
+    }
+
     console.log(this.tipoOcorrencia);
     const id = this.tipoOcorrencia.idTipoOcorrencia ?? 0;
     this.tipoocorrenciaService.update(id, this.tipoOcorrencia).then(data => {
