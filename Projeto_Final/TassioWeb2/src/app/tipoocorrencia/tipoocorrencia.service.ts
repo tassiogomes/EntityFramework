@@ -30,4 +30,17 @@ export class TipoocorrenciaService {
     return await this.httpClient.post<TipoOcorrenciaInterface>(this.apiUrl, tipoOcorrenciaBody, httpOptions);
   }
 
+  // Editar
+
+  async update(id: number, body: any):  Promise<Observable<TipoOcorrenciaInterface>> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        //adiciona outros cabeçalhos, como autorização, se necessário
+
+      })
+    };
+    return this.httpClient.put<TipoOcorrenciaInterface>(this.apiUrl + "/" + id, body, httpOptions); //return observable
+  }
+
 }

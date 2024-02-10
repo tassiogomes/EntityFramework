@@ -7,7 +7,7 @@ import { EditarTipoocorrenciaComponent } from './editar-tipoocorrencia/editar-ti
 const routes: Routes = [
   { path: '', component: TipoocorrenciaComponent },
   { path: 'criar-tipoocorrencia', component: CriarTipoOcorrenciaComponent},
-  { path: 'editar-tipoocorrencia', component: EditarTipoocorrenciaComponent}
+  { path: 'editar-tipoocorrencia/:id', component: EditarTipoocorrenciaComponent}
 ];
 
 @NgModule({
