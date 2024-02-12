@@ -51,7 +51,7 @@ export class DeleteTipoocorrenciaComponent implements OnInit{
         alert('Tipo de Ocorrência foi eliminada');
         this.deleteForm.reset();
         this.tipoOcorrencia = { idTipoOcorrencia: 0, nomeTipoOcorrencia: '' };
-        this.router.navigate(['/tipodeocorrencia']);
+        this.router.navigate(['/tipoocorrencia']);
       });
     }).catch(error => {
       console.log('Erro ao eliminar Tipo de Ocorrência', error);
