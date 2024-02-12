@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'tipoocorrencia', loadChildren: () => import('./tipoocorrencia/tipoocorrencia.module').then(m => m.TipoocorrenciaModule) }
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

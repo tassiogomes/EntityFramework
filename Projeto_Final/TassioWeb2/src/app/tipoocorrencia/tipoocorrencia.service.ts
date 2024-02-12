@@ -36,11 +36,30 @@ export class TipoocorrenciaService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-        //adiciona outros cabeçalhos, como autorização, se necessário
 
       })
     };
     return this.httpClient.put<TipoOcorrenciaInterface>(this.apiUrl + "/" + id, body, httpOptions); //return observable
   }
+
+    // Excluir
+    async delete(id: number): Promise<Observable<any>> {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      };
+      return this.httpClient.delete<any>(this.apiUrl + "/" + id, httpOptions); // Retorna um observable
+    }
+
+    async getTipoOcorrenciaById(id: number): Promise<Observable<TipoOcorrenciaInterface>> {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+      };
+      return this.httpClient.get<TipoOcorrenciaInterface>(this.apiUrl + "/" + id, httpOptions);
+    }
+    
 
 }

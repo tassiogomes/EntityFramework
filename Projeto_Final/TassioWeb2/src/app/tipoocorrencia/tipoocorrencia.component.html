@@ -25,7 +25,7 @@
             <!-- Botão de Editar -->
             <button class="btn btn-primary" [routerLink]="['/tipoocorrencia/editar-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Editar</button>
             <!-- Botão de Excluir com margem -->
-            <button class="btn btn-danger ms-2">Excluir</button>
+            <button class="btn btn-danger ms-2" [routerLink]="['/tipoocorrencia/delete-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Excluir</button>
             <!-- Adicionei a classe "ms-2" para adicionar uma margem de 2 unidades à esquerda do botão de Excluir -->
           </td>
         </tr>

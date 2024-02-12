@@ -89,9 +89,9 @@ verificar se está na pagina node_modules
         2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
                 <button class="btn btn-primary mt-3" routerLink="['/tipoocorrencia/editar-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Editar Ocorrência</button>.
                 recebe o id no routerLink, diferentemente das outras funções, essa leva o id da rota pro botao.
-        2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de criar.
+        2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de Editar.
                 Não esquecer de [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia.
-        2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao post e depois injetar no EditarTipoOcorrenciaComponent.
+        2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao delete e depois injetar no EditarTipoOcorrenciaComponent.
         2.3.5 - Criar a funcao UPDATE no editar-tipoocorrencia.component
                 Essa funcao possui uma particularidade que precisa igualar o id que vem da rota com o id da funcao.
                 Passar private route: ActivatedRoute no construtor e depois criar um OnInit para capturar o ID da rota e converte para número.

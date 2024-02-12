@@ -9,6 +9,9 @@ import { TipoocorrenciaService } from '../tipoocorrencia.service';
   styleUrl: './criar-tipoocorrencia.component.css'
 })
 export class CriarTipoOcorrenciaComponent {
+delete() {
+throw new Error('Method not implemented.');
+}
   tipoOcorrencia: TipoOcorrenciaInterface;
   createForm: FormGroup;
 
