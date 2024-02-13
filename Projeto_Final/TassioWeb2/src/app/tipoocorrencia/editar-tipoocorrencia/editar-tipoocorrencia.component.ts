@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TipoOcorrenciaInterface } from '../tipoocorrencia';
 import { TipoocorrenciaService } from '../tipoocorrencia.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-tipoocorrencia',
@@ -16,7 +16,8 @@ export class EditarTipoocorrenciaComponent implements OnInit {
   constructor(
     private tipoocorrenciaService: TipoocorrenciaService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.createForm = this.formBuilder.group({
       nomeTipoOcorrencia: ['', [Validators.required]]
@@ -49,6 +50,7 @@ export class EditarTipoocorrenciaComponent implements OnInit {
         alert('Tipo de Ocorrência atualizada com sucesso');
         this.createForm.reset();
         this.tipoOcorrencia = { idTipoOcorrencia: 0, nomeTipoOcorrencia: '' };
+        this.router.navigate(['/tipoocorrencia']);
       });
     }).catch(error => {
       console.log('Erro ao atualizar o Tipo de Ocorrência', error);
