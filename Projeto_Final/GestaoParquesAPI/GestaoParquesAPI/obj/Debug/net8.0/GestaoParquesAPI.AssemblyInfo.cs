@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestaoParquesAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9510610080bed03dfce8b972ff0570ad0bf3f364")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c80212e0eaecd76fd5d4f64f5ebce8c1c19fa74")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestaoParquesAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestaoParquesAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

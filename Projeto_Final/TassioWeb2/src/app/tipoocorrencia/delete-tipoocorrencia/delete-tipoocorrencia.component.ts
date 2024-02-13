@@ -41,22 +41,30 @@ export class DeleteTipoocorrenciaComponent implements OnInit{
     });
   }
 
-  delete() {
-
+  async delete() {
     console.log(this.tipoOcorrencia);
     const id = this.tipoOcorrencia.idTipoOcorrencia ?? 0;
-    this.tipoocorrenciaService.delete(id).then(data => {
-      data.subscribe(data => {
-        console.log('Tipo de Ocorrência eliminada com sucesso', data);
+    (await this.tipoocorrenciaService.delete(id)).subscribe(
+      () => {
+        console.log('Tipo de Ocorrência eliminada com sucesso');
         alert('Tipo de Ocorrência foi eliminada');
         this.deleteForm.reset();
         this.tipoOcorrencia = { idTipoOcorrencia: 0, nomeTipoOcorrencia: '' };
         this.router.navigate(['/tipoocorrencia']);
-      });
-    }).catch(error => {
-      console.log('Erro ao eliminar Tipo de Ocorrência', error);
-      alert('Não foi possível eliminar o Tipo de Ocorrência');
-    });
+      },
+      (error) => {
+        console.log('Erro ao eliminar Tipo de Ocorrência', error);
+        if (error.error && typeof error.error === 'string') {
+          // Se a resposta de erro contiver uma mensagem de texto, exiba-a
+          alert('Não foi possível eliminar o Tipo de Ocorrência: ' + error.error);
+        } else {
+          // Se não, exiba uma mensagem de erro genérica
+          alert('Não foi possível eliminar o Tipo de Ocorrência. Por favor, tente novamente mais tarde.');
+        }
+        this.router.navigate(['/tipoocorrencia']);
+      }
+    );
   }
+  
 
 }

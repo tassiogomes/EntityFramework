@@ -42,10 +42,7 @@ throw new Error('Method not implemented.');
       })
     }).then(()=>{
       this.createForm.reset();
-      this.tipoOcorrencia = {
-        idTipoOcorrencia: 0,
-        nomeTipoOcorrencia: ''
-      }
+      this.tipoOcorrencia = { idTipoOcorrencia: 0, nomeTipoOcorrencia: ''}
     
     }).catch(error =>{
       console.log('Tipo de Ocorrência não pode ser criada', error);

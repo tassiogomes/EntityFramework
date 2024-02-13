@@ -1,4 +1,4 @@
-﻿using GestaoParquesAPI.Models;
+﻿    using GestaoParquesAPI.Models;
 
 namespace GestaoParquesAPI.DTOs
 {
@@ -17,6 +17,7 @@ namespace GestaoParquesAPI.DTOs
             {
                 IdTipoOcorrencia = this.IdTipoOcorrencia,
                 NomeTipoOcorrencia = this.NomeTipoOcorrencia,
+                Inativo = this.Inativo,
                 DataCriacao = DateTime.Now,
                 DataAtualizacao = DateTime.Now
             };
@@ -29,7 +30,8 @@ namespace GestaoParquesAPI.DTOs
             TipoOcorrenciaDTO dtoTipoOcorrecia = new TipoOcorrenciaDTO
             {
                 IdTipoOcorrencia = ocorrencia.IdTipoOcorrencia,
-                NomeTipoOcorrencia = ocorrencia.NomeTipoOcorrencia
+                NomeTipoOcorrencia = ocorrencia.NomeTipoOcorrencia,
+                Inativo = ocorrencia.Inativo
             };
             return dtoTipoOcorrecia;
         }

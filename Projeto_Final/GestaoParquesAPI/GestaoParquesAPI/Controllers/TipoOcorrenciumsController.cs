@@ -94,6 +94,44 @@ namespace GestaoParquesAPI.Controllers
         }
 
 
+        // PUT: api/TipoOcorrenciums/5/Inativo
+        [HttpPut("{id}/Inativo")]
+        public async Task<IActionResult> UpdateInativo(int id, bool inativo)
+        {
+            // Buscar o TipoOcorrencium no banco de dados com base no id fornecido
+            var tipoOcorrencium = await _context.TipoOcorrencia.FindAsync(id);
+
+            // Verificar se o TipoOcorrencium foi encontrado
+            if (tipoOcorrencium == null)
+            {
+                return NotFound();
+            }
+
+            // Atualizar o campo Inativo diretamente no modelo
+            tipoOcorrencium.Inativo = inativo;
+
+            try
+            {
+                // Salvar as alterações no banco de dados
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TipoOcorrenciumExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+
+
         // POST: api/TipoOcorrenciums
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
