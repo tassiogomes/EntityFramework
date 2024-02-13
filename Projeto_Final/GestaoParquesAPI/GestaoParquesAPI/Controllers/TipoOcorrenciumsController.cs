@@ -72,6 +72,7 @@ namespace GestaoParquesAPI.Controllers
 
             // Atualizar apenas as propriedades necessárias com base nos dados do DTO
             tipoOcorrencium.NomeTipoOcorrencia = tipoOcorrenciaDTO.NomeTipoOcorrencia;
+            tipoOcorrencium.Inativo = tipoOcorrenciaDTO.Inativo;
 
             try
             {

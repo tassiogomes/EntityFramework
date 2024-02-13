@@ -3,7 +3,7 @@
     <h2>Lista de Tipo Ocorrências</h2>
   
     <!-- Botão de Criar Ocorrência -->
-    <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar-tipoocorrencia">Criar Ocorrência</button>
+    <button type="button" class="btn btn-success" routerLink="/tipoocorrencia/criar-tipoocorrencia">Criar Tipo de Ocorrência</button>
     <!-- Tabela centralizada -->
     <table class="table mx-auto mt-3">
       <thead>
@@ -17,7 +17,10 @@
         <!-- Linha da Tabela -->
         <tr *ngFor="let ocorrencia of tipoocorrenciaList">
           <!-- Coluna de Status -->
-          <td>Status 1</td>
+          <td [style.color]="ocorrencia.inativo ? 'red' : 'green'" style="font-weight: bold;">
+            <i class="bi bi-person-circle" [style.color]="ocorrencia.inativo ? 'red' : 'green'"></i>
+            {{ ocorrencia.inativo ? 'Inativo' : 'Ativo' }}
+          </td>                  
           <!-- Coluna de Nome -->
           <td>{{ ocorrencia.nomeTipoOcorrencia }}</td>
           <!-- Coluna de Ações -->

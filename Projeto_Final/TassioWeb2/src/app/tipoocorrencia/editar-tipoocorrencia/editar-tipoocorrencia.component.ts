@@ -20,12 +20,14 @@ export class EditarTipoocorrenciaComponent implements OnInit {
     private router: Router
   ) {
     this.createForm = this.formBuilder.group({
-      nomeTipoOcorrencia: ['', [Validators.required]]
+      nomeTipoOcorrencia: ['', [Validators.required]],
+      inativo: [false] 
     });
 
     this.tipoOcorrencia = {
       idTipoOcorrencia: 0,
-      nomeTipoOcorrencia: ''
+      nomeTipoOcorrencia: '',
+      inativo: false
     };
   }
 
@@ -33,6 +35,7 @@ export class EditarTipoocorrenciaComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = +params['id']; // Captura o ID da rota e converte para número
       this.tipoOcorrencia.idTipoOcorrencia = id;
+      
     });
   }
 
@@ -40,10 +43,11 @@ export class EditarTipoocorrenciaComponent implements OnInit {
     if (!this.tipoOcorrencia.nomeTipoOcorrencia.trim()) {
       alert('Por favor, preencha o campo Nome.');
       return;
-    }
+    } 
 
     console.log(this.tipoOcorrencia);
     const id = this.tipoOcorrencia.idTipoOcorrencia ?? 0;
+    //const inativo = this.tipoOcorrencia.inativo;
     this.tipoocorrenciaService.update(id, this.tipoOcorrencia).then(data => {
       data.subscribe(data => {
         console.log('Tipo de Ocorrência atualizada com sucesso', data);

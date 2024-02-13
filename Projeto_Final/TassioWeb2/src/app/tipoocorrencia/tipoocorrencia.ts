@@ -1,4 +1,5 @@
 export interface TipoOcorrenciaInterface {
     idTipoOcorrencia?: number,
-    nomeTipoOcorrencia: string
+    nomeTipoOcorrencia: string,
+    inativo?: boolean
 }
