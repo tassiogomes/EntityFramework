@@ -52,6 +52,8 @@ export class TipoocorrenciaService {
       return this.httpClient.delete<any>(this.apiUrl + "/" + id, httpOptions); // Retorna um observable
     }
 
+
+    // Get By Id
     async getTipoOcorrenciaById(id: number): Promise<Observable<TipoOcorrenciaInterface>> {
       const httpOptions = {
         headers: new HttpHeaders({

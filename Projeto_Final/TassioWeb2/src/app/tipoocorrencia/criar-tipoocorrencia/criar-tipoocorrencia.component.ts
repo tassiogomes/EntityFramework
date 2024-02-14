@@ -15,7 +15,10 @@ throw new Error('Method not implemented.');
   tipoOcorrencia: TipoOcorrenciaInterface;
   createForm: FormGroup;
 
-  constructor(private tipoocorrenciaService: TipoocorrenciaService, private formBuilder: FormBuilder) {
+  constructor(
+    private tipoocorrenciaService: TipoocorrenciaService,
+    private formBuilder: FormBuilder) 
+    {
     this.createForm = this.formBuilder.group({
       idTipoOcorrencia: [0, [Validators.required]],
       nomeTipoOcorrencia: ['', [Validators.required]]

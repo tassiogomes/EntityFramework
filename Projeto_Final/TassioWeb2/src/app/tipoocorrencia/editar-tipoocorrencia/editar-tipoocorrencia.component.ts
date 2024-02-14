@@ -35,6 +35,11 @@ export class EditarTipoocorrenciaComponent implements OnInit {
     this.route.params.subscribe(params => {
       const id = +params['id']; // Captura o ID da rota e converte para número
       this.tipoOcorrencia.idTipoOcorrencia = id;
+      this.tipoocorrenciaService.getTipoOcorrenciaById(id).then(data => {
+        data.subscribe((data =>{
+          this.tipoOcorrencia = data;
+        }));
+      })
       
     });
   }
