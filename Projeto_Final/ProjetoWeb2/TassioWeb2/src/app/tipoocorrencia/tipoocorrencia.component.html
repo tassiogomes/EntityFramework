@@ -1,0 +1,58 @@
+<div class="container text-center ">
+  <!-- Botão de alternância -->
+  <button class="btn btn-primary mb-3" (click)="toggleView()">Alternar Visualização</button>
+  <button type="button" class="custom-button btn btn-success mt-3 mb-3" routerLink="/tipoocorrencia/criar-tipoocorrencia">Criar Tipo de Ocorrência</button>
+  <div>
+    <p>Total de itens: {{ countItens }}</p>
+  </div>
+  
+  <!-- Lista de Tipo Ocorrências -->
+  <div *ngIf="isListView">
+      <h2 class="display-5">Lista de Tipo Ocorrências</h2>
+      <div class="container px-4 px-lg-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+              <div class="col mb-5" *ngFor="let ocorrencia of tipoocorrenciaList">
+                  <div class="card h-100">
+                      <img class="card-img-top" src="" alt="..." />
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <h5 class="fw-bolder"> {{ocorrencia.nomeTipoOcorrencia}}</h5>
+                          </div>
+                      </div>
+                      <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                          <button class="btn btn-primary" [routerLink]="['/tipoocorrencia/editar-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Editar</button>
+                          <button class="btn btn-danger ms-2" [routerLink]="['/tipoocorrencia/delete-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Excluir</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Tabela de Tipo Ocorrências -->
+  <div *ngIf="!isListView">
+      <h2 class="display-5">Tabela de Tipo Ocorrências</h2>
+      <table class="table mx-auto mt-3">
+          <thead>
+              <tr>
+                  <th>Status</th>
+                  <th>Nome</th>
+                  <th>Ações</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let ocorrencia of tipoocorrenciaList">
+                  <td [style.color]="ocorrencia.inativo ? 'red' : 'green'" style="font-weight: bold;">
+                      <i class="bi bi-bookmark" [style.color]="ocorrencia.inativo ? 'red' : 'green'"></i>
+                      {{ ocorrencia.inativo ? 'Inativo' : 'Ativo' }}
+                  </td>                  
+                  <td>{{ ocorrencia.nomeTipoOcorrencia }}</td>
+                  <td>
+                      <button class="btn btn-primary" [routerLink]="['/tipoocorrencia/editar-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Editar</button>
+                      <button class="btn btn-danger ms-2" [routerLink]="['/tipoocorrencia/delete-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Excluir</button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

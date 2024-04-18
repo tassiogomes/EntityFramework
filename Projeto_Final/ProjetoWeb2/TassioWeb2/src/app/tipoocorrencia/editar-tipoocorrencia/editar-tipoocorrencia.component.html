@@ -1,0 +1,23 @@
+<p>editartipoocorrencia works!</p>
+
+<div class="container">
+    <h2 class="text-center mt-5">Editar Tipo de Ocorrência</h2>
+    <div class="mt-3">
+        <p>ID: {{ tipoOcorrencia.idTipoOcorrencia }}</p>
+        <p>Status: {{ tipoOcorrencia.inativo ? 'Inativo' : 'Ativo' }}</p>
+    </div>
+    <form class="mt-3">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Digite o novo nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite aqui" name="nomeTipoOcorrencia" [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia">
+        </div>
+        <div class="mb-3">
+            <label for="inativo" class="form-label">Status</label>
+            <select class="form-select" id="inativo" name="inativo" [(ngModel)]="tipoOcorrencia.inativo">
+                <option [ngValue]="false">Ativo</option>
+                <option [ngValue]="true">Inativo</option>
+            </select>
+        </div>
+        <button class="btn btn-warning" (click)="update()">Salvar</button>
+    </form>
+</div>

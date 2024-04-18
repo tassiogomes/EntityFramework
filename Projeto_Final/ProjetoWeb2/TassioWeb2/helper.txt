@@ -1,0 +1,100 @@
+- Criar projeto
+ng new nomedoprojeto --no-standalone --routing  --ssr=false
+
+- Link do Zé antes de gerar componente
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+
+- Install Bootstrap
+npm install bootstrap@5 --save
+npm install bootstrap-icons
+verificar se está na pagina node_modules
+
+-- PASSO A PASSO
+1 - Estrutura
+    1.1 - HOME: Criar componente home dentro da pasta app - ng generate component home
+        1.1.1 - Foi adicionado import { HomeComponent } from './home/home.component';
+                automaticamente a pasta app.module, a central;
+        1.1.2 - Adicionar as rotas da app, na app.routing passando o path.
+                { path: '', component: HomeComponent};
+        1.1.3 - Passar o <router-outlet></router-outlet> pra dentro do module.
+                Esse vai puxar pra dentro tudo que é componente.
+    1.2 - HEADER e FOOTER: Criar componente header e footer
+          ng generate component header e ng generate component footer;
+        1.2.1 - Foi adicionado import import { HeaderComponent } from './shared/header/header.component';
+                import { FooterComponent } from './shared/footer/footer.component';
+                automaticamente a pasta app.module, a central;
+        1.2.2 - Adicionar as rotas da app, na app.routing passando o path.
+                import { HeaderComponent } from './shared/header/header.component';
+                import { FooterComponent } from './shared/footer/footer.component';
+        1.2.3 - Passar pra dentro do app.module.html os selectors dos dois.
+                <app-header></app-header>
+                <router-outlet></router-outlet>
+                <app-footer></app-footer>;
+        1.2.4 - Preencher header.html e footer.html com os bootstrap;
+
+2 - CRUD
+    2.1-API - Criar ng generate environments dentro da pasta src, fora da app.
+          Criar variável que receberá o URL da api nos dois arquivos.
+          apiUrl: 'https://localhost:7149/api/'
+
+    2.2-LIST - Criar componente para Lista de Tipo de Ocorrência.
+                 ng generate module tipoocorrencia --route tipoocorrencia --module app.module
+        2.2.1 - Cria automaticamente uma rota na app.routing para essa nova componente.
+                { path: 'tipoocorrencia', loadChildren: () => import('./tipoocorrencia/tipoocorrencia.module').then(m => m.TipoocorrenciaModule) }                  
+        2.2.2 - Tem que atualizar o link do botao da nav bar para que chame essa nova componente, que nao roda na home.
+                <a class="nav-link" href="/tipoocorrencia">Tipo de Ocorrência</a>
+        2.2.3 - Criar tabela para receber os dados e botoes pras açõem em tipoocorrencia.html 
+        2.2.4 - Criar um serviço para que esse componente se conecte com a api.
+                ng generate service tipoocorrencia dentro na pasta tipoocorrencia
+        2.2.5 - Na classe TipoocorrenciaService criada adicionar uma variável que vai ser o receber o endpoint do environments
+                apiUrl: string = "";
+        2.2.6 - Criar um construtor dessa classe, que receberá o url base + o endpoint da api.
+                  constructor(private httpClient: HttpClient){
+                        this.apiUrl = environment.apiUrl + "TipoOcorrencium";
+                    }
+        2.2.7 - Importar os modulos HttpClientModule tanto no app.module, que é a nossa aplicação.
+                Mas também importar no tipoocorrencia.service para reconhecer essa biblioteca.
+        2.2.8 - Criar tipoocorrencia.ts com uma interface que terá que ser implementada do jeito que
+                a API manda os dados. Criar arquivo a mão.
+        2.2.9 - Criar a função GetAllTipoOcorrencia no service para receber todos os dados.
+        2.2.10- Fazer que o tipoocorrencia.html que tem a lista, tenha acesso a esse GetAllTipoOcorrencia.
+                Implementar o OnInit na classe Tipoocorrencia, para que o GetAllTipoOcorrencia
+                seja feito antes de qualquer ação que houver na página.
+        2.2.11- Declarar duas variáveis, um um array vazio de nome ListaTipoOcorrencia do tipo interface TipoOcorrencia.
+                Um outro array vazio do mesmo tipo mas com o nome TipoOcorrencia.
+                Um é a lista de todos que vem do GetAllTipoOcorrencia, outro é cada item dessa lista.
+        2.2.12- Criar um contrutor que receba um TipoocorrenciaService que é onde está o GetAllTipoOcorrencia.
+                Importar serviço import { TipoocorrenciaService } from './tipoocorrencia.service';
+        2.2.13- Implementar o OnInit, verificar codigo por causa do Observable e subscribe, ler mais sobre isso.
+        2.2.14- Fazer um Foreach no tipoocorrencia.html para listar esse array com os tipos de ocorrencia e
+                e colocar na coluna certa da tabela, nesse caso, nome do tipo de ocorrencia.
+    2.3-CREATE - Criar componente dentro da pasta tipoocorrencia para criar um tipo novo.
+                   ng generate component criar-tipoocorrencia , criará os 4 arquivos.
+        2.3.1 - Criar rota NO COMPONENTE PAI (tipoocorrencia) para o novo componente criartipoocorrencia.
+                { path: 'criar-tipoocorrencia', component: CriarTipoocorrenciaComponent}
+                Agora com um path, que será inserido no botao, para ir pro html do criar.            
+        2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
+                <button class="btn btn-primary mt-3" routerLink="/tipoocorrencia/criar-tipoocorrencia">Criar Ocorrência</button>.
+        2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de criar.
+        2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao post e depois injetar no CriarTipoOcorrenciaComponent.
+        2.3.5 - Criar a funcao criartipoocorrencia no criar-tipoocorrencia.component.
+        2.3.6 - Adicionar ao botao criar no html a chamada da funcao no input.
+                [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia"
+    2.4-EDIT -  Criar componente dentro da pasta tipoocorrencia para criar um tipo novo.
+                   ng generate component editar-tipoocorrencia , criará os 4 arquivos.
+        2.3.1 - Criar rota NO COMPONENTE PAI (tipoocorrencia) para o novo componente editartipoocorrencia.
+                { path: 'editar-tipoocorrencia/:id', component: EditarTipoocorrenciaComponent}
+                Agora com um path PASSANDO O :id, que será inserido no botao, para ir pro html do criar.            
+        2.3.2 - Adicionar esse path ao hiperlink, assim levando pra pagia criar works quando o botao for clicado.
+                <button class="btn btn-primary mt-3" routerLink="['/tipoocorrencia/editar-tipoocorrencia', ocorrencia.idTipoOcorrencia]">Editar Ocorrência</button>.
+                recebe o id no routerLink, diferentemente das outras funções, essa leva o id da rota pro botao.
+        2.3.3 - Criado formulário para receber o novo tipo de ocorrencia e botao de Editar.
+                Não esquecer de [(ngModel)]="tipoOcorrencia.nomeTipoOcorrencia.
+        2.3.4 - Criar um serviço no tipoocorrencia.service para a api ao delete e depois injetar no EditarTipoOcorrenciaComponent.
+        2.3.5 - Criar a funcao UPDATE no editar-tipoocorrencia.component
+                Essa funcao possui uma particularidade que precisa igualar o id que vem da rota com o id da funcao.
+                Passar private route: ActivatedRoute no construtor e depois criar um OnInit para capturar o ID da rota e converte para número.
+                Ver código com atenção.
+    2.4-Delete- Criar componente dentro da pasta tipoocorrencia para criar um tipo novo.
+                   ng generate component delete-tipoocorrencia , criará os 4 arquivos.
